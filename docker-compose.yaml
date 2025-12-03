@@ -1,0 +1,9 @@
+services:
+  speedscope:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: "speedscope"
+    restart: unless-stopped
+    ports:
+      - "4444:80"
