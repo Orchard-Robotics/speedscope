@@ -8,6 +8,7 @@ on:
   pull_request:
     paths:
       - "Dockerfile*"
+      - ".github/workflows/docker.yml"
 
 env:
   REGISTRY: docker.io
@@ -53,6 +54,7 @@ jobs:
           file: ./Dockerfile
           platforms: |
             linux/amd64
+            linux/arm64/v8
           # Do not push if this is a pull request
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
